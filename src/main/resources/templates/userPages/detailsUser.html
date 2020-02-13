@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <link href="../static/style.css" th:href="@{/style.css}" rel="stylesheet" />
+
     <title>Tour operator 1 !</title>
+    <link href="../static/style.css" th:href="@{/style.css}" rel="stylesheet" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../static/style.css">
+    <style>
+    </style>
+
 </head>
+<body>
 
 <header class="jumbotron text-center" style="margin-bottom:0">
     <div>
@@ -17,39 +23,16 @@
     </div>
 </header>
 
-<h1 style="text-align: center">Panel administratora</h1>
 <br>
 <br>
-    <div class="container">
-    <div class="row">
-        <div class="col-sm" align="center"  >
-            <a  type="menu" th:href="@{'/admin'}" >Rezerwacje</a>
-
-        </div>
-        <div class="col-sm" align="center"  >
-            <a type="menu" th:href="@{'/admin'}" >Baza wycieczek - strona główna</a>
-        </div>
-        <div class="col-sm" align="center"  >
-            <a  type="menu" th:href="@{'/admin/newOffer'}" >Dodaj nowa ofertę</a>
-        </div>
-    </div>
-    </div>
 
 
+<h1 style="text-align: center">Szczegóły oferty</h1>
+<br>
+<br>
 <br>
 
-<br>
-<div>
-    <h2 class="text-center" style="margin-bottom:0">Wyszukiwarka </h2>
-</div>
-<br>
-<br>
-<br>
-<br>
-<div>
-    <h2 class="text-center" style="margin-bottom:0">Baza wycieczek </h2>
-</div>
-<br>
+
 <div>
     <table class="table table-striped" >
         <thead>
@@ -69,7 +52,7 @@
         </tr>
         </thead>
         <tbody >
-        <tr th:each="tour: ${tours}">
+        <tr>
             <th th:text="${tour.getId()}"></th>
             <td> <img src= "favicon.ico" className="ui mini rounded image"  /></td>
             <td th:text="${tour.getTitle()}"></td>
@@ -79,18 +62,11 @@
             <td th:text="${tour.dateTo}"></td>
             <td th:text="${tour.getPrice()}"></td>
             <td th:text="${tour.getTouroperator()}"></td>
-            <td>
-                <a type="submit"  th:href="@{'/admin/edit/' + ${tour.id}}" >Edytuj</a>
-            </td>
-            <td>
-                <a type="submit"  th:href="@{'/admin/delete/' + ${tour.id}}" >Usuń</a>
-            </td>
-            <td>
-                <a type="submit" th:href="@{'/admin/details/' + ${tour.id}}" style="background: olivedrab">Szczegóły i rezerwacja</a>
-            </td>
         </tr>
         </tbody>
     </table>
 </div>
+
+
 </body>
 </html>

@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <title>Tour operator 1 !</title>
+    <link href="../static/style.css" th:href="@{/style.css}" rel="stylesheet" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -10,112 +11,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 
-    <style>
-
-        * {
-            box-sizing: border-box;
-        }
-        input[type=text], select, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            resize: vertical;
-        }
-
-        label {
-            padding: 12px 12px 12px 0;
-            display: inline-block;
-        }
-
-        input[type=submit] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            float: right;
-        }
-
-        input[type=submit]:hover {
-            background-color: #45a049;
-        }
-
-        a[type=submit] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            float: right;
-        }
-
-        a[type=submit]:hover {
-            background-color: #45a049;
-            text-decoration: none;
-            color: black;
-        }
-
-
-        a[type=menu] {
-            background-color: #45a049 ;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-
-        }
-
-        a[type=menu]:hover {
-            background-color: #45a049;
-            text-decoration: none;
-            color: black;
-        }
-
-        .container {
-            border-radius: 5px;
-            background-color: lightgrey;
-            padding: 20px;
-        }
-
-        .col-25 {
-            float: left;
-            width: 25%;
-            margin-top: 6px;
-        }
-
-        .col-75 {
-            float: left;
-            width: 75%;
-            margin-top: 6px;
-        }
-
-        /* Clear floats after the columns */
-        .row:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-
-        /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-        @media screen and (max-width: 600px) {
-            .col-25, .col-75, input[type=submit] {
-                width: 100%;
-                margin-top: 0;
-            }
-        }
-
-    </style>
 
 
 </head>
-
 <br>
 <br>
-
 <header class="jumbotron text-center" style="margin-bottom:0">
     <div>
         <h2>Tour operator 1 </h2>
@@ -135,10 +35,10 @@
 
         </div>
         <div class="col-sm" align="center"  >
-            <a type="menu" th:href="@{'/admin'}" >Strona głowna panelu</a>
+            <a type="menu" th:href="@{'/admin'}" >Baza wycieczek - strona główna</a>
         </div>
         <div class="col-sm" align="center"  >
-            <a  type="menu" th:href="@{'/new_offer'}" >Dodaj nowa ofertę</a>
+            <a  type="menu" th:href="@{'/admin/newOffer'}" >Dodaj nowa ofertę</a>
         </div>
     </div>
     </div>
@@ -151,7 +51,7 @@
 <br>
 
 <div class="container">
-    <form th:action="@{/add}" th:object="${newTour}" method="post">
+    <form th:action="@{/admin/add}" th:object="${newTour}" method="post">
 
         <div class="row">
             <div class="col-25">
