@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import pl.touroperators.touroperator1.entities.Tour;
+import pl.touroperators.touroperator1.model.Tour;
 import pl.touroperators.touroperator1.services.TourService;
 
 import java.util.List;

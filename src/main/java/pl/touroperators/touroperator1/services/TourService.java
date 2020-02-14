@@ -1,15 +1,13 @@
 package pl.touroperators.touroperator1.services;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
-import pl.touroperators.touroperator1.entities.Tour;
-import pl.touroperators.touroperator1.repo.TourRepo;
+import pl.touroperators.touroperator1.model.Tour;
+import pl.touroperators.touroperator1.repository.TourRepo;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
@@ -27,7 +25,7 @@ public class TourService {
     }
 
     public Iterable<Tour> findAll(){
-        log.info("Start downloading tour offers");
+     //   log.info("Start downloading tour offers");
         return tourRepo.findAll();
     }
 
@@ -64,5 +62,6 @@ public class TourService {
         save(new Tour(4L, "Wyjazd na Litwe",LocalDate.of(2020, 02, 12), LocalDate.of(2020, 02, 12), 1200, "Madryt", "Poznan", "Litwa", "Touroperator1"));
         save(new Tour(5L, "Wyjazd do Hiszpanii",LocalDate.of(2020, 02, 12), LocalDate.of(2020, 02, 12), 1100, "Madryt", "Warszawa", "Ukraina", "Touroperator1"));
     }
+
 
 }

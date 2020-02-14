@@ -4,7 +4,7 @@ package pl.touroperators.touroperator1.resources;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.touroperators.touroperator1.entities.Tour;
+import pl.touroperators.touroperator1.model.Tour;
 import pl.touroperators.touroperator1.services.TourService;
 
 import java.util.Optional;
@@ -41,5 +41,7 @@ public class TourResource {
     public int sendNumberOfOffers() {
         return tourService.sendNumberOfOffers();
     }
+
+
 
 }

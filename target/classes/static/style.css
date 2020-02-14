@@ -1,6 +1,11 @@
 * {
     box-sizing: border-box;
 }
+
+#ownHeader {
+
+}
+
 input[type=text], select, textarea {
     width: 100%;
     padding: 12px;
@@ -93,3 +98,4 @@ a[type=menu]:hover {
         margin-top: 0;
     }
 }
+
