@@ -28,7 +28,7 @@ public class UserPageResource {
     public String get(Model model){
         List<Tour> tours = tourService.findAllAsList();
         model.addAttribute("tours",tours);
-     //   model.addAttribute("newTour", new Tour());
+        model.addAttribute("newTour", new Tour());
         return "/userPages/homepage";
     }
 

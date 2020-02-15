@@ -94,7 +94,6 @@
             <th style="color: #45a049"scope="col">Data wyjazdu</th>
             <th style="color: #45a049"scope="col">Powrót przed</th>
             <th style="color: #45a049"scope="col">Cena</th>
-            <th style="color: #45a049"scope="col">Touroperator</th>
             <th scope="col"></th>
             <th scope="col"></th>
             <th scope="col"></th>
@@ -110,7 +109,7 @@
             <td th:text="${tour.dateFrom}"></td>
             <td th:text="${tour.dateTo}"></td>
             <td th:text="${tour.getPrice()}"></td>
-            <td th:text="${tour.getTouroperator()}"></td>
+
             <td>
                 <a type="submit"  th:href="@{'/admin/edit/' + ${tour.id}}" >Edytuj</a>
             </td>
@@ -118,7 +117,7 @@
                 <a type="submit"  th:href="@{'/admin/delete/' + ${tour.id}}" >Usuń</a>
             </td>
             <td>
-                <a type="submit" th:href="@{'/admin/details/' + ${tour.id}}" style="background: olivedrab">Szczegóły i rezerwacja</a>
+                <a type="submit" th:href="@{'/admin/details/' + ${tour.id}}" style="background: olivedrab">Szczegóły</a>
             </td>
         </tr>
         </tbody>

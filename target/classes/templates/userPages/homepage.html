@@ -13,8 +13,6 @@
 </head>
 <body>
 
-
-
 <header class="jumbotron text-center" style="margin-bottom:0" >
     <div>
         <h2>Tour operator 1 </h2>
@@ -68,15 +66,15 @@
         <tbody >
 
         <tr th:each="tour: ${tours}">
+
             <th th:text="${tour.getId()}"></th>
             <td> <img src= "favicon.ico" className="ui mini rounded image"  /></td>
             <td th:text="${tour.getTitle()}"></td>
             <td th:text="${tour.getCountry()}"></td>
             <td th:text="${tour.getDestinationCity()}"></td>
-            <td th:text="${tour.dateFrom}"></td>
+            <td th:text="${tour.getDateFrom()}"></td>
             <td th:text="${tour.dateTo}"></td>
             <td th:text="${tour.getPrice()}"></td>
-            <td th:text="${tour.getTouroperator()}"></td>
             <td>
                 <a type="submit" th:href="@{'/user/offerdetails/' + ${tour.id}}" style="background: olivedrab">Szczegóły i rezerwacja</a>
             </td>

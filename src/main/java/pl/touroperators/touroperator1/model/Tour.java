@@ -4,6 +4,7 @@ package pl.touroperators.touroperator1.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 public class Tour implements Serializable {
@@ -14,9 +15,9 @@ public class Tour implements Serializable {
 
     private String title;
 
-    private LocalDate dateFrom;
+    private Date dateFrom;
 
-    private LocalDate dateTo;
+    private Date dateTo;
 
     private int price;
 
@@ -26,12 +27,15 @@ public class Tour implements Serializable {
 
     private String country;
 
-    private String touroperator;
+    @OneToOne(fetch = FetchType.LAZY,
+            cascade =  CascadeType.ALL)
+    private Hotel hotel;
+
 
     public Tour() {
     }
 
-    public Tour(Long id, String title, LocalDate dateFrom, LocalDate dateTo, int price, String destinationCity, String departureFrom, String country, String  touroperator) {
+    public Tour(Long id, String title, Date dateFrom, Date dateTo, int price, String destinationCity, String departureFrom, String country, Hotel hotel) {
         this.id = id;
         this.title = title;
         this.dateFrom = dateFrom;
@@ -40,8 +44,9 @@ public class Tour implements Serializable {
         this.destinationCity = destinationCity;
         this.departureFrom = departureFrom;
         this.country = country;
-        this.touroperator = touroperator;
+        this.hotel = hotel;
     }
+
 
     public Long getId() {
         return id;
@@ -59,19 +64,19 @@ public class Tour implements Serializable {
         this.title = title;
     }
 
-    public LocalDate getDateFrom() {
+    public Date getDateFrom() {
         return dateFrom;
     }
 
-    public void setDateFrom(LocalDate dateFrom) {
+    public void setDateFrom(Date dateFrom) {
         this.dateFrom = dateFrom;
     }
 
-    public LocalDate getDateTo() {
+    public Date getDateTo() {
         return dateTo;
     }
 
-    public void setDateTo(LocalDate dateTo) {
+    public void setDateTo(Date dateTo) {
         this.dateTo = dateTo;
     }
 
@@ -107,12 +112,12 @@ public class Tour implements Serializable {
         this.country = country;
     }
 
-    public String getTouroperator() {
-        return touroperator;
+    public Hotel getHotel() {
+        return hotel;
     }
 
-    public void setTouroperator(String touroperator) {
-        this.touroperator = touroperator;
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
     }
 
 
@@ -127,7 +132,7 @@ public class Tour implements Serializable {
                 ", destinationCity='" + destinationCity + '\'' +
                 ", departureFrom='" + departureFrom + '\'' +
                 ", country='" + country + '\'' +
-                ", touroperator='" + touroperator + '\'' +
+                ", hotel=" + hotel +
                 '}';
     }
 }

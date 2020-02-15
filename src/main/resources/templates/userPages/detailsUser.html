@@ -37,18 +37,17 @@
     <table class="table table-striped table-hover" >
         <thead>
         <tr>
-            <th scope="col">Numer</th>
-            <th scope="col"></th>
-            <th scope="col">Tytul</th>
-            <th scope="col">Kraj</th>
-            <th scope="col">Miejsce przylotu</th>
-            <th scope="col">Data wyjazdu</th>
-            <th scope="col">Powrót przed</th>
-            <th scope="col">Cena</th>
-            <th scope="col">Touroperator</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col"></th>
+            <th style="color: #45a049"  scope="col">Numer</th>
+            <th style="color: #45a049" scope="col"></th>
+            <th style="color: #45a049" scope="col">Tytul</th>
+            <th style="color: #45a049" scope="col">Kraj</th>
+            <th style="color: #45a049" scope="col">Miejsce przylotu</th>
+            <th style="color: #45a049" scope="col">Data wyjazdu</th>
+            <th style="color: #45a049" scope="col">Powrót przed</th>
+            <th style="color: #45a049" scope="col">Cena</th>
+            <th style="color: #45a049" scope="col"></th>
+            <th style="color: #45a049" scope="col"></th>
+            <th style="color: #45a049" scope="col"></th>
         </tr>
         </thead>
         <tbody >
@@ -61,12 +60,22 @@
             <td th:text="${tour.dateFrom}"></td>
             <td th:text="${tour.dateTo}"></td>
             <td th:text="${tour.getPrice()}"></td>
-            <td th:text="${tour.getTouroperator()}"></td>
         </tr>
         </tbody>
     </table>
 </div>
 
 
+<br>
+<div th:text="${tour.hotel.getName()}">
+</div>
+<div th:text="${tour.hotel.getDescription()}">
+</div>
+<div th:text="${tour.hotel.getEmail()}">
+</div>
+
+
+
+</div>
 </body>
 </html>
