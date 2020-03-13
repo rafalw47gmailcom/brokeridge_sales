@@ -11,24 +11,35 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../../static/style.css">
+
     <style>
+        #second_header{
+            background-image: url("holiday-finally.jpg");
+            background-size: 100%;
+            background-position: center;
+            text-align: center;
+        }
+
     </style>
+
 </head>
+
 <body>
-<br>
-<br>
-<header class="jumbotron text-center" style="margin-bottom:0">
+
+<header id= "second_header" class="jumbotron text-left" style="margin-bottom:0" >
     <div>
-        <h2>Tour operator 1 </h2>
+        <h2 >Tour operator 1 </h2>
     </div>
 </header>
+
+
 <br>
 <br>
 <div class="container">
 
     <div class="row">
         <div class="col-sm" align="center"  >
-            <a  type="menu" th:href="@{'/admin'}" >Rezerwacje</a>
+            <a  type="menu" th:href="@{'admin/reservation'}" >Rezerwacje</a>
         </div>
         <div class="col-sm" align="center"  >
             <a type="menu" th:href="@{'/admin'}" >Baza wycieczek - strona główna</a>
@@ -53,15 +64,16 @@
         <thead>
         <tr>
             <th scope="col">Numer</th>
-            <th scope="col"></th>
+
+            <!--
+                        <th scope="col"></th>
+            -->
             <th scope="col">Tytul</th>
             <th scope="col">Kraj</th>
             <th scope="col">Miejsce przylotu</th>
             <th scope="col">Data wyjazdu</th>
             <th scope="col">Powrót przed</th>
             <th scope="col">Cena</th>
-            <th scope="col">Touroperator</th>
-            <th scope="col"></th>
             <th scope="col"></th>
             <th scope="col"></th>
         </tr>
@@ -69,7 +81,9 @@
         <tbody >
         <tr>
             <th th:text="${tour.getId()}"></th>
+<!--
             <td> <img src= "favicon.ico" className="ui mini rounded image"  /></td>
+-->
             <td th:text="${tour.getTitle()}"></td>
             <td th:text="${tour.getCountry()}"></td>
             <td th:text="${tour.getDestinationCity()}"></td>
@@ -87,6 +101,11 @@
         </tbody>
     </table>
 </div>
+
+
+
+
+
 
 
 </body>

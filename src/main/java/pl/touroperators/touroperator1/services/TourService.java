@@ -1,16 +1,12 @@
 package pl.touroperators.touroperator1.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
-import pl.touroperators.touroperator1.model.Hotel;
-import pl.touroperators.touroperator1.model.HotelLocation;
 import pl.touroperators.touroperator1.model.Tour;
-import pl.touroperators.touroperator1.model.enumclasses.Room;
 import pl.touroperators.touroperator1.repository.TourRepo;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
@@ -54,8 +50,74 @@ public class TourService {
 
     public List<Tour> findAllAsList(){
         return tourRepo.findAll();
+          }
+
+    public Iterable<Tour> findAllByCountry(String country){
+        return tourRepo.findAllByCountry(country);
+    }
+
+    public Iterable<Tour> findAllByPrice(int price) {
+        return tourRepo.findAllByPrice(price);
+    }
+
+    public Iterable<Tour> findAllByDestinationCity(String destinationCity) {
+        return tourRepo.findAllByDestinationCity(destinationCity);
     }
 
 
+    public Iterable<Tour> findAllByTitle(String title) {
+        return tourRepo.findAllByTitle(title);
+    }
 
+    public Iterable<Tour> findAllByDepartureFrom(String destinationCity) {
+        return tourRepo.findAllByDepartureFrom(destinationCity);
+    }
+
+    public List<Tour> findAllByTitleLike(String title){
+        return tourRepo.findAllByTitleLike(title);
+    };
+
+    public List<Tour> findAllByCountryLike(String country) {
+        return tourRepo.findAllByCountryLike(country);
+    }
+
+    public List<Tour> findAllByDestinationCityLike(String destinationCity){
+        return tourRepo.findAllByDestinationCityLike(destinationCity);
+    };
+
+    public List<Tour> findAllByDateFromLike(LocalDate dateFrom){
+        return tourRepo.findAllByDateFromLike(dateFrom);
+    };
+
+    public List<Tour> findAllByDateToLike(LocalDate dateTo){
+        return tourRepo.findAllByDateToLike(dateTo);
+    };
+
+    public List<Tour> findAllByPriceLike(int price){
+        return tourRepo.findAllByPriceLike(price);
+    };
+
+
+    public List<Tour> findAllByCountryAndDestinationCityAndDateFromAndDateTo(String country,String destinationCity,LocalDate dateFrom, LocalDate dateTo) {
+        return tourRepo.findAllByCountryAndDestinationCityAndDateFromAndDateTo(country,destinationCity, dateFrom, dateTo);
+    }
+
+
+/*
+    public Iterable<Tour> findAllByCountryAndAndDateFromAndAndDateTo(String country, LocalDate dateFrom, LocalDate dateTo) {
+        return tourRepo.findAllByCountryAndAndDateFromAndAndDateTo(country,dateFrom,dateTo);
+    }
+    Iterable<Tour> findAllByPriceAndAndDateFromAndAndDateTo(String price, String dateFrom, String dateTo) {
+        return null;
+    }
+    Iterable<Tour> findAllByTitleAndAndDateFromAndAndDateTo(String title, String dateFrom, String dateTo) {
+        return null;
+    }
+    Iterable<Tour> findAllByDestinationCityAndAndDateFromAndAndDateTo(String DestinationCity, String dateFrom, String dateTo) {
+        return null;
+    }
+    Iterable<Tour> findAllByDepartureFromAndAndDateFromAndAndDateTo(String cDepartureFrom, String dateFrom, String dateTo) {
+        return null;
+    }
+ */
 }

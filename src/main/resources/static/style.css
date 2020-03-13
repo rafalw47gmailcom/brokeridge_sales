@@ -2,16 +2,18 @@
     box-sizing: border-box;
 }
 
-#ownHeader {
-
-}
-
 input[type=text], select, textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
     resize: vertical;
+}
+
+
+#second_header{
+    background-image: url("holiday-finally.jpg");
+    background-size: 100%;
 }
 
 label {

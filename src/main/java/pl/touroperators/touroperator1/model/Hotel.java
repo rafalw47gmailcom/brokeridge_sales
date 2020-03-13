@@ -1,5 +1,6 @@
 package pl.touroperators.touroperator1.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import pl.touroperators.touroperator1.model.enumclasses.Room;
 
 import javax.persistence.*;
@@ -7,7 +8,7 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
-public class Hotel implements Serializable {
+public class Hotel  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,38 +24,47 @@ public class Hotel implements Serializable {
 
     private String description;
 
+    private String phone;
+
     @Enumerated(EnumType.STRING)
     private Room room;
 
 
 
-    /*
 
+    /*
         @OneToOne(mappedBy = "hotel")
     private Tour tour;
-
         @OneToOne(fetch = FetchType.LAZY,
             cascade =  CascadeType.ALL)
     @JoinColumn
     private HotelLocation hotelLocation;
-
      */
-
-
 
     public Hotel() {
     }
 
-    public Hotel(Long id,String name, @NotNull int stars, @NotNull String email, String description, Room room) {
+    public Hotel(Long id,String name, @NotNull int stars, @NotNull String email, String description, String phone, Room room) {
         this.id =id;
         this.name = name;
         this.stars = stars;
         this.email = email;
         this.description = description;
-
         this.room = room;
+        this.phone = phone;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public Long getId() {
         return id;
@@ -92,9 +102,6 @@ public class Hotel implements Serializable {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public Room getRoom() {
         return room;
@@ -103,7 +110,5 @@ public class Hotel implements Serializable {
     public void setRoom(Room room) {
         this.room = room;
     }
-
-
 
 }

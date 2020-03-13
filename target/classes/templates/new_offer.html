@@ -11,28 +11,32 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 
+<style>
+    #second_header{
+        background-image: url("holiday-finally.jpg");
+        background-size: 100%;
+        background-position: center;
+        text-align: center;
+    }
 
+</style>
 
 </head>
-<br>
-<br>
-<header class="jumbotron text-center" style="margin-bottom:0">
+<body>
+<header id= "second_header" class="jumbotron text-left" style="margin-bottom:0" >
     <div>
-        <h2>Tour operator 1 </h2>
+        <h2 >Tour operator 1 </h2>
     </div>
 </header>
 
-
-
+<h1 style="text-align: center">Panel administratora</h1>
 <br>
 <br>
-
     <div class="container">
 
     <div class="row">
         <div class="col-sm" align="center"  >
-            <a  type="menu" th:href="@{'/admin'}" >Rezerwacje</a>
-
+            <a  type="menu" th:href="@{'reservation'}" >Rezerwacje</a>
         </div>
         <div class="col-sm" align="center"  >
             <a type="menu" th:href="@{'/admin'}" >Baza wycieczek - strona główna</a>
@@ -42,14 +46,12 @@
         </div>
     </div>
     </div>
-
 <br>
 <br>
 <br>
 
 <h2 style="text-align: center">Dodaj nową ofertę</h2>
 <br>
-
 <div class="container">
     <form th:action="@{/admin/add}" th:object="${newTour}" method="post">
 
@@ -61,7 +63,6 @@
                 <input type="text" placeholder="Podaj tytuł.."  th:field="*{title}">
             </div>
         </div>
-
 
         <div class="row">
             <div class="col-25">
@@ -81,7 +82,6 @@
             </div>
         </div>
 
-
         <div class="row">
             <div class="col-25">
                 <label >Wyjazd od</label>
@@ -90,7 +90,6 @@
                 <input type="text" placeholder="Wyjazd od.."  th:data="*{dateFrom}">
             </div>
         </div>
-
 
         <div class="row">
             <div class="col-25">
@@ -116,12 +115,9 @@
     </form>
 
 </div>
-
 <br>
 <br>
-
 </body>
 <br>
-
 </body>
 </html>

@@ -1,5 +1,7 @@
 package pl.touroperators.touroperator1.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
@@ -29,6 +31,7 @@ public class User implements Serializable {
  //   @Column(unique = true)
     private String email;
 
+    @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY,
             cascade =  CascadeType.ALL,
             mappedBy = "user")

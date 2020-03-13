@@ -1,6 +1,7 @@
 package pl.touroperators.touroperator1.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Setter;
 import pl.touroperators.touroperator1.model.enumclasses.Gender;
 
@@ -10,7 +11,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-public class HotelLocation implements Serializable {
+public class HotelLocation  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,19 +42,14 @@ public class HotelLocation implements Serializable {
     private String zipCode;
 
 
-    /*
-        @OneToOne(mappedBy = "hotelLocation")
-    private Hotel hotel;
-
-     */
 
     public HotelLocation() {
     }
 
-
-    public HotelLocation(String address1, String address2, String street, String city,
+    public HotelLocation(Long id,String address1, String address2, String street, String city,
                          String state, String country, String zipCode) {
 
+        this.id=id;
         this.address1 = address1;
         this.address2 = address2;
         this.street = street;
@@ -62,12 +58,6 @@ public class HotelLocation implements Serializable {
         this.country = country;
         this.zipCode = zipCode;
     }
-
-
-
-
-
-
 
     public Long getId() {
         return id;

@@ -5,7 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import pl.touroperators.touroperator1.model.Reservation;
 import pl.touroperators.touroperator1.model.Tour;
+import pl.touroperators.touroperator1.services.ReservationService;
 import pl.touroperators.touroperator1.services.TourService;
 
 import java.util.List;
@@ -19,19 +21,24 @@ public class AdminPageResource {
 
     private TourService tourService;
 
+    private ReservationService reservationService;
+
+
+
     @Autowired
-    public AdminPageResource(TourService tourService) {
+    public AdminPageResource(TourService tourService, ReservationService reservationService) {
         this.tourService = tourService;
+        this.reservationService = reservationService;
     }
+
 
     @GetMapping()
     public String get(Model model){
         List<Tour> tours = tourService.findAllAsList();
         model.addAttribute("tours",tours);
-        model.addAttribute("newTour", new Tour());
+  //    model.addAttribute("newTour", new Tour());
         return "/admin";
     }
-
 
     @GetMapping("/newOffer")
     public String getNewOfferPage(Model model){
@@ -40,6 +47,15 @@ public class AdminPageResource {
         model.addAttribute("newTour", new Tour());
 
         return "new_offer";
+    }
+
+    @GetMapping("/reservation")
+    public String getReservationPage(Model model){
+        List<Reservation> reservations = reservationService.findAll();
+        model.addAttribute("reservations",reservations);
+        model.addAttribute("newReservation", new Reservation());
+
+        return "reservation";
     }
 
     @PostMapping("/add")
